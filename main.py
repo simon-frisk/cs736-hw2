@@ -20,7 +20,7 @@ def createJobFile(fileName):
             file.write(f"filename={driver}\n")
             file.write(f"readwrite={mode}\n")
             file.write(f"numjobs={jobs}\n")
-            file.write(f"blockSize={blockSize}\n")
+            file.write(f"bs={blockSize}\n")
             file.write(f"\n")
 
         
