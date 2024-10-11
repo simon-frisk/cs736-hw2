@@ -27,7 +27,12 @@ def createJobFile(fileName):
 
 
 def runJobs(jobFile):
-    subprocess.run(['sudo', 'fio', jobFile], capture_output=True, text=True)
+    print("Running jobs")
+    result = subprocess.run(['sudo', 'fio', jobFile], capture_output=True, text=True)
+
+    print("Finished ---")
+
+    print(result)
 
 
 if __name__ == '__main__':
