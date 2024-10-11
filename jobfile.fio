@@ -1,0 +1,21 @@
+[global]
+ioengine=libaio        # Use asynchronous I/O
+rw=randrw              # Perform random reads and writes
+bs=4k                  # Block size of 4 KB
+size=1G                # Total size of the file to use
+numjobs=4              # Number of threads to use
+runtime=60s            # Run each job for 60 seconds
+time_based             # Run the job in time-based mode
+direct=1               # Use direct I/O
+
+[random-read]
+filename=/path/to/testfile
+readwrite=randread     # Random read operation
+
+[random-write]
+filename=/path/to/testfile
+readwrite=randwrite    # Random write operation
+
+[random-rw]
+filename=/path/to/testfile
+readwrite=randrw       # Random read/write operation
