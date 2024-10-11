@@ -1,6 +1,5 @@
 [global]
 ioengine=psync
-rw=randrw
 bs=4k
 size=1G
 runtime=30s
