@@ -12,7 +12,7 @@ def createJobFile(fileName):
 
         drivers=['/dev/nullb0','/dev/rnullb0']
         xDim = ["write", "read"]
-        blockSizes = ['4','8']
+        blockSizes = ['4k','8k']
         numJobs = ['1','2']
         
         for (mode, blockSize, jobs, driver) in itertools.product(xDim, blockSizes, numJobs, drivers):
