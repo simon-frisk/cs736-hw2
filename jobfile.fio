@@ -3,15 +3,46 @@ ioengine=psync
 rw=randrw
 bs=4k
 size=1G
-numjobs=1
 runtime=30s
 time_based
 direct=1
 
-[C Driver]
+[CD1]
 filename=/dev/nullb0
 readwrite=read
+numjobs=1
 
-[Rust Driver]
+[CD2]
+filename=/dev/nullb0
+readwrite=read
+numjobs=2
+
+[CD3]
+filename=/dev/nullb0
+readwrite=read
+numjobs=3
+
+[CD4]
+filename=/dev/nullb0
+readwrite=read
+numjobs=4
+
+[RD1]
 filename=/dev/rnullb0
 readwrite=read
+numjobs=1
+
+[RD2]
+filename=/dev/rnullb0
+readwrite=read
+numjobs=2
+
+[RD3]
+filename=/dev/rnullb0
+readwrite=read
+numjobs=3
+
+[RD4]
+filename=/dev/rnullb0
+readwrite=read
+numjobs=4
