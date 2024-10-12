@@ -14,9 +14,9 @@ def createJobFile(fileName):
         file.write("[global]\nioengine=psync\nbs=4k\nsize=1G\nruntime=30s\ntime_based\ndirect=1\n")
 
         drivers=['/dev/nullb0','/dev/rnullb0']
-        xDim = ["read"]
-        blockSizes = ['4k']
-        numJobs = ['1','2']
+        xDim = ['read', 'write']
+        blockSizes = ['4k', '8k']
+        numJobs = ['1', '2', '3', '4']
         
         for (mode, blockSize, jobs, driver) in itertools.product(xDim, blockSizes, numJobs, drivers):
             file.write(f"[{driver}-{mode}-{blockSize}-{jobs}]\n")
