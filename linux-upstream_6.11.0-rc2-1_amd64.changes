@@ -1,0 +1,34 @@
+Format: 1.8
+Date: Sat, 12 Oct 2024 08:54:14 -0500
+Source: linux-upstream
+Binary: linux-headers-6.11.0-rc2-custom linux-image-6.11.0-rc2-custom linux-libc-dev
+Built-For-Profiles: noudeb
+Architecture: amd64
+Version: 6.11.0-rc2-1
+Distribution: jammy
+Urgency: low
+Maintainer: simonf <simonf@c220g5-110927.wisc.cloudlab.us>
+Changed-By: simonf <simonf@c220g5-110927.wisc.cloudlab.us>
+Description:
+ linux-headers-6.11.0-rc2-custom - Linux kernel headers for 6.11.0-rc2-custom on amd64
+ linux-image-6.11.0-rc2-custom - Linux kernel, version 6.11.0-rc2-custom
+ linux-libc-dev - Linux support headers for userspace development
+Changes:
+ linux-upstream (6.11.0-rc2-1) jammy; urgency=low
+ .
+   * Custom built Linux kernel.
+Checksums-Sha1:
+ 456ee043bb9229138b055516509d723e0c9d0d87 9907890 linux-headers-6.11.0-rc2-custom_6.11.0-rc2-1_amd64.deb
+ a4f3d1eb11801993a62f08236bc1c8e044b15e3b 84229332 linux-image-6.11.0-rc2-custom_6.11.0-rc2-1_amd64.deb
+ 49a123f6191d4ecff88bfc9caa7a1d63e056c4df 1431372 linux-libc-dev_6.11.0-rc2-1_amd64.deb
+ 9f69420a688eae07afeb6068c350fdb03787847d 7807 linux-upstream_6.11.0-rc2-1_amd64.buildinfo
+Checksums-Sha256:
+ 964a3f9a5c25476f0a896539503e996779e35739c96b41a2b4a48b8a28247aed 9907890 linux-headers-6.11.0-rc2-custom_6.11.0-rc2-1_amd64.deb
+ 7e04feb501714b486e39f289c1f06ba5a597ddcdee0359f64dee19223d2373db 84229332 linux-image-6.11.0-rc2-custom_6.11.0-rc2-1_amd64.deb
+ 1b7da00ad525d141ba1a3672b2707754618d9e55caece16e68915a930edc3f6b 1431372 linux-libc-dev_6.11.0-rc2-1_amd64.deb
+ 1f342d1028a710637b491998e9afc9cf4dd741ceb5feb55315f7ad112ca92200 7807 linux-upstream_6.11.0-rc2-1_amd64.buildinfo
+Files:
+ 8b8d2e591f1fa8047bd86ae52e52bbd8 9907890 kernel optional linux-headers-6.11.0-rc2-custom_6.11.0-rc2-1_amd64.deb
+ 4e523c90969bb6cc466c08d458dc7f9c 84229332 kernel optional linux-image-6.11.0-rc2-custom_6.11.0-rc2-1_amd64.deb
+ 53fcae44d6e7b08412320c1d4a04cd1b 1431372 devel optional linux-libc-dev_6.11.0-rc2-1_amd64.deb
+ 8d449cb28a006ff80e946526b8a5764b 7807 kernel optional linux-upstream_6.11.0-rc2-1_amd64.buildinfo
