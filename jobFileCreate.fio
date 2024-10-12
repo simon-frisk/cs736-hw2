@@ -5,99 +5,131 @@ size=1G
 runtime=30s
 time_based
 direct=1
-[/dev/nullb0-write-4-1]
+[/dev/nullb0-write-4k-1]
 filename=/dev/nullb0
 readwrite=write
 numjobs=1
-blockSize=4
+bs=4k
+group_reporting
+stonewall
 
-[/dev/rnullb0-write-4-1]
+[/dev/rnullb0-write-4k-1]
 filename=/dev/rnullb0
 readwrite=write
 numjobs=1
-blockSize=4
+bs=4k
+group_reporting
+stonewall
 
-[/dev/nullb0-write-4-2]
+[/dev/nullb0-write-4k-2]
 filename=/dev/nullb0
 readwrite=write
 numjobs=2
-blockSize=4
+bs=4k
+group_reporting
+stonewall
 
-[/dev/rnullb0-write-4-2]
+[/dev/rnullb0-write-4k-2]
 filename=/dev/rnullb0
 readwrite=write
 numjobs=2
-blockSize=4
+bs=4k
+group_reporting
+stonewall
 
-[/dev/nullb0-write-8-1]
+[/dev/nullb0-write-8k-1]
 filename=/dev/nullb0
 readwrite=write
 numjobs=1
-blockSize=8
+bs=8k
+group_reporting
+stonewall
 
-[/dev/rnullb0-write-8-1]
+[/dev/rnullb0-write-8k-1]
 filename=/dev/rnullb0
 readwrite=write
 numjobs=1
-blockSize=8
+bs=8k
+group_reporting
+stonewall
 
-[/dev/nullb0-write-8-2]
+[/dev/nullb0-write-8k-2]
 filename=/dev/nullb0
 readwrite=write
 numjobs=2
-blockSize=8
+bs=8k
+group_reporting
+stonewall
 
-[/dev/rnullb0-write-8-2]
+[/dev/rnullb0-write-8k-2]
 filename=/dev/rnullb0
 readwrite=write
 numjobs=2
-blockSize=8
+bs=8k
+group_reporting
+stonewall
 
-[/dev/nullb0-read-4-1]
+[/dev/nullb0-read-4k-1]
 filename=/dev/nullb0
 readwrite=read
 numjobs=1
-blockSize=4
+bs=4k
+group_reporting
+stonewall
 
-[/dev/rnullb0-read-4-1]
+[/dev/rnullb0-read-4k-1]
 filename=/dev/rnullb0
 readwrite=read
 numjobs=1
-blockSize=4
+bs=4k
+group_reporting
+stonewall
 
-[/dev/nullb0-read-4-2]
+[/dev/nullb0-read-4k-2]
 filename=/dev/nullb0
 readwrite=read
 numjobs=2
-blockSize=4
+bs=4k
+group_reporting
+stonewall
 
-[/dev/rnullb0-read-4-2]
+[/dev/rnullb0-read-4k-2]
 filename=/dev/rnullb0
 readwrite=read
 numjobs=2
-blockSize=4
+bs=4k
+group_reporting
+stonewall
 
-[/dev/nullb0-read-8-1]
+[/dev/nullb0-read-8k-1]
 filename=/dev/nullb0
 readwrite=read
 numjobs=1
-blockSize=8
+bs=8k
+group_reporting
+stonewall
 
-[/dev/rnullb0-read-8-1]
+[/dev/rnullb0-read-8k-1]
 filename=/dev/rnullb0
 readwrite=read
 numjobs=1
-blockSize=8
+bs=8k
+group_reporting
+stonewall
 
-[/dev/nullb0-read-8-2]
+[/dev/nullb0-read-8k-2]
 filename=/dev/nullb0
 readwrite=read
 numjobs=2
-blockSize=8
+bs=8k
+group_reporting
+stonewall
 
-[/dev/rnullb0-read-8-2]
+[/dev/rnullb0-read-8k-2]
 filename=/dev/rnullb0
 readwrite=read
 numjobs=2
-blockSize=8
+bs=8k
+group_reporting
+stonewall
 

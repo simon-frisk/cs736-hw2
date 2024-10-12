@@ -30,7 +30,7 @@ def createJobFile(fileName):
 
 def runJobs(jobFile):
     print("Running jobs")
-    result = subprocess.run(['sudo', 'fio', jobFile, "--output-format=json"], capture_output=True, text=True)
+    result = subprocess.run(['sudo', 'fio', jobFile, "--output-format=json", "--output=output.json"], capture_output=True, text=True)
 
     print("Finished ---")
 
