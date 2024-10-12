@@ -5,6 +5,7 @@ size=1G
 runtime=30s
 time_based
 direct=1
+ioscheduler=mq-deadline
 [/dev/nullb0-read-4k-1]
 filename=/dev/nullb0
 readwrite=read
