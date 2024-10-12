@@ -14,7 +14,7 @@ def createJobFile(fileName):
         file.write("[global]\nioengine=psync\nbs=4k\nsize=1G\nruntime=30s\ntime_based\ndirect=1\n")
 
         drivers=['/dev/nullb0','/dev/rnullb0']
-        xDim = ['read', 'write']
+        xDim = ['read', 'write', 'randread', 'randwrite']
         blockSizes = ['4k', '8k', '16k', '32k', '64k', '128k']
         numJobs = ['1', '2', '3', '4']
         
