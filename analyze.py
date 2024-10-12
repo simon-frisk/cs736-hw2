@@ -1,4 +1,6 @@
 import json
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 def main():
@@ -10,6 +12,9 @@ def main():
 def analyzeOutput(jsonString):
     data = json.loads(jsonString)
     jobs = data["jobs"]
+
+    blockSizes = {}
+    jobSizes = {}
 
     bandwidthMeasures = {}
 
@@ -23,7 +28,8 @@ def analyzeOutput(jsonString):
         numjobs = nameList[3]
         bw = job[readOrWrite]["bw"]
 
-        print(name, driver, mode, bs, numjobs, bw)
+        blockSizes.add(bs)
+        jobSizes.add(numjobs)
 
         if not (mode in bandwidthMeasures):
             bandwidthMeasures[mode] = {}
@@ -34,13 +40,29 @@ def analyzeOutput(jsonString):
 
         bandwidthMeasures[mode][bs][numjobs][driver] = bw
 
-    for mode in bandwidthMeasures:
-        for bs in bandwidthMeasures[mode]:
-            for numjobs in bandwidthMeasures[mode][bs]:
-                for measureDMBN in bandwidthMeasures[mode][bs][numjobs]:
-                    measures = bandwidthMeasures[mode][bs][numjobs]
-                    metric = measures["/dev/rnullb0"] / measures["/dev/nullb0"]
-                    print(f"{mode} {bs} {numjobs} - {metric}")
+    with open("metrics.txt", 'w') as metrics:
+        for mode in bandwidthMeasures:
+            matrix = np.empty((len(blockSizes), len(jobSizes)))
+
+            for bs in bandwidthMeasures[mode]:
+                for numjobs in bandwidthMeasures[mode][bs]:
+                    for measureDMBN in bandwidthMeasures[mode][bs][numjobs]:
+                        measures = bandwidthMeasures[mode][bs][numjobs]
+                        metric = measures["/dev/rnullb0"] / measures["/dev/nullb0"]
+                        matrix[bs, numjobs] = metric
+                        metrics.write(f"{"/dev/rnullb0"} {mode} {bs} {numjobs} - {measures["/dev/rnullb0"]}")
+                        metrics.write(f"{"/dev/nullb0"} {mode} {bs} {numjobs} - {measures["/dev/nullb0"]}")
+
+            plt.imshow(matrix, cmap='coolwarm', interpolation='nearest')
+            plt.colorbar()
+            for i in range(matrix.shape[0]):
+                for j in range(matrix.shape[1]):
+                    plt.text(j, i, f'{matrix[i, j]:.2f}', ha='center', va='center', color='white')
+
+            plt.xlabel('I/O jobs')
+            plt.ylabel('bs')
+            plt.show()
+
 
 
 if __name__ == '__main__':
