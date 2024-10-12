@@ -23,8 +23,8 @@ def createJobFile(fileName):
             file.write(f"readwrite={mode}\n")
             file.write(f"numjobs={jobs}\n")
             file.write(f"bs={blockSize}\n")
-            file.write("group_reporting")
-            file.write("stonewall")
+            file.write("group_reporting\n")
+            file.write("stonewall\n")
             file.write(f"\n")
 
 
