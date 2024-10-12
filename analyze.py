@@ -14,6 +14,7 @@ def analyzeOutput(jsonString):
     bandwidthMeasures = {}
 
     for job in jobs:
+        name = job["jobname"]
         nameList = name.split("-")
         driver = nameList[0]
         mode = nameList[1]
