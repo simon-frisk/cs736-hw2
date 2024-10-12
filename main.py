@@ -15,8 +15,8 @@ def createJobFile(fileName):
 
         drivers=['/dev/nullb0','/dev/rnullb0']
         xDim = ['read', 'write', 'randread', 'randwrite']
-        blockSizes = ['16k', '32k', '64k', '128k']
-        numJobs = ['1']
+        blockSizes = ['4k', '8k', '16k', '32k', '64k', '128k']
+        numJobs = ['1', '2', '3', '4']
         
         for (mode, blockSize, jobs, driver) in itertools.product(xDim, blockSizes, numJobs, drivers):
             file.write(f"[{driver}-{mode}-{blockSize}-{jobs}]\n")
