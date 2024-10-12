@@ -22,16 +22,22 @@ def analyzeOutput(jsonString):
         numjobs = nameList[3]
         bw = job[mode]["bw"]
 
-        if not (driver in bandwidthMeasures):
-            bandwidthMeasures[driver] = {}
         if not (mode in bandwidthMeasures[driver]):
-            bandwidthMeasures[driver][mode] = {}
+            bandwidthMeasures[mode] = {}
         if not (bs in bandwidthMeasures[driver][mode]):
-            bandwidthMeasures[driver][mode][bs] = {}
+            bandwidthMeasures[mode][bs] = {}
+        if not (numjobs in bandwidthMeasures):
+            bandwidthMeasures[mode][bs][numjobs] = {}
 
-        bandwidthMeasures[driver][mode][bs][numjobs] = bw
+        bandwidthMeasures[mode][bs][numjobs][driver] = bw
 
-    print(bandwidthMeasures)
+    for mode in bandwidthMeasures:
+        for bs in bandwidthMeasures[mode]:
+            for numjobs in bandwidthMeasures[mode][bs]:
+                for measureDMBN in bandwidthMeasures[mode][bs][numjobs]:
+                    measures = bandwidthMeasures[mode][bs][numjobs]
+                    print(f"{mode} {bs} {numjobs} - {measures["/dev/rnullb0"] / measures["/dev/nullb0"]}")
+
 
 if __name__ == '__main__':
     main()
