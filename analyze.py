@@ -18,9 +18,10 @@ def analyzeOutput(jsonString):
         nameList = name.split("-")
         driver = nameList[0]
         mode = nameList[1]
+        readOrWrite = 'read' if (mode == 'read' or mode == 'randread') else 'write'
         bs = nameList[2]
         numjobs = nameList[3]
-        bw = job[mode]["bw"]
+        bw = job[readOrWrite]["bw"]
 
         print(name, driver, mode, bs, numjobs, bw)
 
