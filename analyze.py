@@ -36,7 +36,8 @@ def analyzeOutput(jsonString):
             for numjobs in bandwidthMeasures[mode][bs]:
                 for measureDMBN in bandwidthMeasures[mode][bs][numjobs]:
                     measures = bandwidthMeasures[mode][bs][numjobs]
-                    print(f"{mode} {bs} {numjobs} - {measures["/dev/rnullb0"] / measures["/dev/nullb0"]}")
+                    metric = measures["/dev/rnullb0"] / measures["/dev/nullb0"]
+                    print(f"{mode} {bs} {numjobs} - {metric}")
 
 
 if __name__ == '__main__':
