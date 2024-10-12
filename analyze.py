@@ -31,6 +31,8 @@ def analyzeOutput(jsonString):
 
         bandwidthMeasures[mode][bs][numjobs][driver] = bw
 
+    print(bandwidthMeasures)
+
     for mode in bandwidthMeasures:
         for bs in bandwidthMeasures[mode]:
             for numjobs in bandwidthMeasures[mode][bs]:
