@@ -24,7 +24,7 @@ def analyzeOutput(jsonString):
         bs = nameList[2]
         numjobs = nameList[3]
         bw = job[mode]["bw"]
-        bandwidthMeasures.append(((name, mode, bs, numJobs), bw))
+        bandwidthMeasures.append(((name, mode, bs, numjobs), bw))
 
     print(bandwidthMeasures)
 
