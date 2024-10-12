@@ -52,7 +52,7 @@ def analyzeOutput(jsonString):
                     metrics.write(f"/dev/rnullb0 {mode} {bs} {numjobs} - {measures["/dev/rnullb0"]}\n")
                     metrics.write(f"/dev/nullb0 {mode} {bs} {numjobs} - {measures["/dev/nullb0"]}\n")
 
-            plt.imshow(matrix, cmap='coolwarm', interpolation='nearest')
+            plt.imshow(matrix, cmap='coolwarm_r', interpolation='nearest', vmin=0.5, vmax=2)
             plt.colorbar()
             for i in range(matrix.shape[0]):
                 for j in range(matrix.shape[1]):
@@ -60,6 +60,8 @@ def analyzeOutput(jsonString):
             plt.title(mode)
             plt.xlabel('I/O jobs')
             plt.ylabel('bs')
+            plt.xticks(ticks=np.arange(matrix.shape[1]), labels=[i+1 for i in range(matrix.shape[1])])
+            plt.yticks(ticks=np.arange(matrix.shape[0]), labels=[4*(2**(i)) for i in range(matrix.shape[0])])
             plt.show()
 
 
