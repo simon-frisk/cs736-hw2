@@ -11,20 +11,24 @@ def analyzeOutput(jsonString):
     data = json.loads(jsonString)
     jobs = data["jobs"]
 
-    bandwidthMeasures = []
+    bandwidthMeasures = {}
 
     for job in jobs:
-        name = job["jobname"]
-        read_bw = job["read"]["bw"]
-        write_bw = job["write"]["bw"]
-        # print(f"{name} {read_bw} {write_bw}")
-
         nameList = name.split("-")
+        driver = nameList[0]
         mode = nameList[1]
         bs = nameList[2]
         numjobs = nameList[3]
         bw = job[mode]["bw"]
-        bandwidthMeasures.append(((name, mode, bs, numjobs), bw))
+
+        if not (driver in bandwidthMeasures):
+            bandwidthMeasures[driver] = {}
+        if not (mode in bandwidthMeasures[driver])
+            bandwidthMeasures[driver][mode] = {}
+        if not (bs in bandwidthMeasures[driver][mode])
+            bandwidthMeasures[driver][mode][bs] = {}
+
+        bandwidthMeasures[driver][mode][bs][numjobs] = bw
 
     print(bandwidthMeasures)
 
