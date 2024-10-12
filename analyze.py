@@ -23,9 +23,9 @@ def analyzeOutput(jsonString):
 
         if not (driver in bandwidthMeasures):
             bandwidthMeasures[driver] = {}
-        if not (mode in bandwidthMeasures[driver])
+        if not (mode in bandwidthMeasures[driver]):
             bandwidthMeasures[driver][mode] = {}
-        if not (bs in bandwidthMeasures[driver][mode])
+        if not (bs in bandwidthMeasures[driver][mode]):
             bandwidthMeasures[driver][mode][bs] = {}
 
         bandwidthMeasures[driver][mode][bs][numjobs] = bw
