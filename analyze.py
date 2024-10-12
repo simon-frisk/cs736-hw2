@@ -22,11 +22,11 @@ def analyzeOutput(jsonString):
         numjobs = nameList[3]
         bw = job[mode]["bw"]
 
-        if not (mode in bandwidthMeasures[mode]):
+        if not (mode in bandwidthMeasures):
             bandwidthMeasures[mode] = {}
-        if not (bs in bandwidthMeasures[mode][bs]):
+        if not (bs in bandwidthMeasures[mode]):
             bandwidthMeasures[mode][bs] = {}
-        if not (numjobs in bandwidthMeasures[mode][bs][numjobs]):
+        if not (numjobs in bandwidthMeasures[mode][bs]):
             bandwidthMeasures[mode][bs][numjobs] = {}
 
         bandwidthMeasures[mode][bs][numjobs][driver] = bw
