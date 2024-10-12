@@ -1,10 +1,12 @@
 import itertools
 import subprocess
 
+
 def main():
     jobFile = "jobFileCreate.fio"
     createJobFile(jobFile)
     runJobs(jobFile)
+
 
 def createJobFile(fileName):
     with open(fileName, 'w') as file:
@@ -21,14 +23,14 @@ def createJobFile(fileName):
             file.write(f"readwrite={mode}\n")
             file.write(f"numjobs={jobs}\n")
             file.write(f"bs={blockSize}\n")
+            file.write("group_reporting")
+            file.write("stonewall")
             file.write(f"\n")
-
-        
 
 
 def runJobs(jobFile):
     print("Running jobs")
-    result = subprocess.run(['sudo', 'fio', jobFile], capture_output=True, text=True)
+    result = subprocess.run(['sudo', 'fio', jobFile, "--output-format=json"], capture_output=True, text=True)
 
     print("Finished ---")
 
