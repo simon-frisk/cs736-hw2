@@ -1,11 +1,13 @@
 import itertools
 import subprocess
+import json
 
 
 def main():
     jobFile = "jobFileCreate.fio"
     createJobFile(jobFile)
-    runJobs(jobFile)
+    json = runJobs(jobFile)
+    analyzeOutput(json)
 
 
 def createJobFile(fileName):
@@ -13,8 +15,8 @@ def createJobFile(fileName):
         file.write("[global]\nioengine=psync\nbs=4k\nsize=1G\nruntime=30s\ntime_based\ndirect=1\n")
 
         drivers=['/dev/nullb0','/dev/rnullb0']
-        xDim = ["write", "read"]
-        blockSizes = ['4k','8k']
+        xDim = ["read"]
+        blockSizes = ['4k']
         numJobs = ['1','2']
         
         for (mode, blockSize, jobs, driver) in itertools.product(xDim, blockSizes, numJobs, drivers):
@@ -31,10 +33,13 @@ def createJobFile(fileName):
 def runJobs(jobFile):
     print("Running jobs")
     result = subprocess.run(['sudo', 'fio', jobFile, "--output-format=json", "--output=output.json"], capture_output=True, text=True)
+    return result
 
-    print("Finished ---")
-
-    print(result)
+def analyzeOutput(jsonString):
+    data = json.loads(jsonString)
+    jobs = data["jobs"]
+    print(len(jobs))
+    print(jobs)
 
 
 if __name__ == '__main__':
