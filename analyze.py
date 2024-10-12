@@ -10,8 +10,13 @@ def main():
 def analyzeOutput(jsonString):
     data = json.loads(jsonString)
     jobs = data["jobs"]
-    print(len(jobs))
-    print(jobs)
+
+    for job in jobs:
+        name = job["jobname"]
+        read_bw = job["read"]["bw"]
+        write_bw = job["write"]["bw"]
+        print(f"{name} {read_bw} {write_bw}")
+
 
 
 if __name__ == '__main__':
