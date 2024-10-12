@@ -11,7 +11,7 @@ def main():
 
 def createJobFile(fileName):
     with open(fileName, 'w') as file:
-        file.write("[global]\nioengine=psync\nbs=4k\nsize=1G\nruntime=30s\ntime_based\ndirect=1\nioscheduler=mq-deadline\n")
+        file.write("[global]\nioengine=psync\nbs=4k\nsize=1G\nruntime=30s\ntime_based\ndirect=1\nioscheduler=mq-deadline\n\n")
 
         drivers=['/dev/nullb0','/dev/rnullb0']
         xDim = ['read', 'write', 'randread', 'randwrite']

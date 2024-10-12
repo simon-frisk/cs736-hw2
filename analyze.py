@@ -4,7 +4,7 @@ import numpy as np
 
 
 def main():
-    with open("output.json", 'r') as file:
+    with open("output_1.json", 'r') as file:
         jsonString = file.read()
         analyzeOutput(jsonString)
 
